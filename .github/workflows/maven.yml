@@ -79,10 +79,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build Project
-      run: mvn package
-    - name: Upload JAR artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-jar
-        path: target/*.jar 
+      run: mvn package 
 
