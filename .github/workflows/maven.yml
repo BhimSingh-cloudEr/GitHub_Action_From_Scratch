@@ -43,7 +43,7 @@ jobs:
         run: gitleaks detect -s . -r gitleaks-report.json --report-format json
 
       - name: Upload Security Scan Reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: Security Reports
           path: |
