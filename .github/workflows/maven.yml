@@ -67,7 +67,6 @@ jobs:
   depcheck:
     runs-on: ubuntu-latest
     name: Dependency Check
-    needs: test
     steps:
       - uses: actions/checkout@v4
       - name: Run Maven Test for Dependency Check Prep
@@ -84,7 +83,7 @@ jobs:
             --failOnCVSS 7
             --enableRetired
       - name: Upload Test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: Depcheck report
           path: ${{ github.workspace }}/reports
