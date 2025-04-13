@@ -73,7 +73,7 @@ jobs:
       - name: Run Maven Test for Dependency Check Prep
         run: mvn clean test
       - name: Run OWASP Dependency Check
-        uses: dependency-check/Dependency-Check_Action@main
+        uses: dependency-check/Dependency-Check_Action@v4
         id: depcheck
         with:
           project: 'shopping-cart'
@@ -83,11 +83,12 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-      - name: Upload Dependency Check Report
-        uses: actions/upload-artifact@v3
+      - name: Upload Test results
+      - uses: actions/upload-artifact@v4
         with:
-          name: OWASP Depcheck Report
-          path: reports
+          name: Depcheck report
+          path: ${{ github.workspace }}/reports
+
 
   build_project_and_sonar_scan:
     runs-on: ubuntu-latest
