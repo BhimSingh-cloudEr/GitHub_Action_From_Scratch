@@ -84,10 +84,11 @@ jobs:
             --failOnCVSS 7
             --enableRetired
       - name: Upload Test results
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: Depcheck report
           path: ${{ github.workspace }}/reports
+
 
 
   build_project_and_sonar_scan:
